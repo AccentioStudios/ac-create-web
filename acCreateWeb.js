@@ -9,6 +9,7 @@ const validateProjectName = require('validate-npm-package-name');
 const fetch = require('node-fetch');
 const execSync = require('child_process').execSync;
 const simpleGit = require('simple-git');
+const { option } = require('commander');
 
 let projectName;
 let options = [];
@@ -36,6 +37,7 @@ function init() {
     program
     .option('-t, --test', 'testing option')
     .option('-f, --force', 'forzar creacion del proyecto')
+    .option('-i, --install', 'instalar paquetes npm al final')
     .allowUnknownOption()
     .parse(process.argv);
     options = program.opts();
@@ -112,11 +114,21 @@ async function run(rootApp, projectName, originalDirectory) {
     try {
         await getForGitInstallation();
         await getBoilerplate(rootApp, projectName, originalDirectory);
-        await installNpmPackages(rootApp, projectName, originalDirectory);
-        console.log()
+        if (options.install) {
+            await installNpmPackages(rootApp, projectName, originalDirectory);
+        }
+        console.log();
         console.log(
             `${chalk.greenBright('El proyecto ha sido creado satisfactoriamente.')} \n`
         );
+        if (!options.install) {
+            console.log();
+            console.log(
+                `Para instalar los paquetes npm ejecuta en el directorio el siguiente comando:\n`+
+                `       npm install`
+            );
+        }
+        console.log();
         process.exit(0);
     } catch (onError) {
         console.error(
@@ -155,8 +167,8 @@ function installNpmPackages(rootApp, projectName, originalDirectory){
     return new Promise((resolve, reject) => {
         console.log(`Instalando dependencias. Esto puede demorar unos minutos...`);
         console.log();
-        // execSync('npm i', {stdio: 'inherit'});
-        console.log(`${chalk.yellowBright(`Hasta aqui lo dejo el mio, por mas que puedo poner a instalar los paquetes por motivos de test eso va a demorar una puta vida kek.`)}`);
+        execSync('npm i', {stdio: 'inherit'});
+        // console.log(`${chalk.yellowBright(`Hasta aqui lo dejo el mio, por mas que puedo poner a instalar los paquetes por motivos de test eso va a demorar una puta vida kek.`)}`);
         resolve();
     })
 }
