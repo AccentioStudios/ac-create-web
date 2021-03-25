@@ -8,15 +8,15 @@ var major = semver[0];
 
 if (major < 10) {
   console.error(
-    'You are running Node ' +
+    'Estas ejecutando Node ' +
       currentNodeVersion +
       '.\n' +
-      'AC-Create App requires Node 10 or higher. \n' +
-      'Please update your version of Node.'
+      'AC-Create App requiere Node 10 o mayor. \n' +
+      'Por favor actualiza tu version de Node.'
   );
   process.exit(1);
 }
 
-const { init } = require('./acCreateApp');
+const { init } = require('./acCreateWeb');
 
 init();
