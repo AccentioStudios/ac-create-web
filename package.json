@@ -3,7 +3,7 @@
     "ac-create-web": "index.js"
   },
   "name": "ac-create-web",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "deprecated": "false",
   "description": "Asistente de creacion de boilerplate de proyecto web simple",
   "main": "index.js",
