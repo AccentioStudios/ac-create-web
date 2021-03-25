@@ -1,17 +1,32 @@
 {
+  "bin": {
+    "ac-create-web": "index.js"
+  },
   "name": "ac-create-web",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "deprecated": "false",
   "description": "Asistente de creacion de boilerplate de proyecto web simple",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "index.js",
+    "acCreateApp.js"
+  ],
+  "keywords": [
+    "accentio"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AccentioStudios/ac-create-web.git"
+  },
+  "homepage": "https://github.com/AccentioStudios/ac-create-web",
   "author": "Accentio Studios",
   "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.0",
     "commander": "^7.2.0",
-    "create-react-app": "^4.0.3",
     "fs-extra": "^9.1.0",
     "validate-npm-package-name": "^3.0.0"
   }
