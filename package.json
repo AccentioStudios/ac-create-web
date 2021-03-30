@@ -4,7 +4,6 @@
   },
   "name": "ac-create-web",
   "version": "1.1.1",
-  "deprecated": "false",
   "description": "Asistente de creacion de boilerplate de proyecto web simple",
   "main": "index.js",
   "scripts": {

@@ -149,8 +149,8 @@ async function getBoilerplate(rootApp, projectName, originalDirectory) {
         }
         const git = simpleGit(gitOptions);
         try {
-            console.log(`${chalk.blueBright(`Clonando Repo...`)}`);
-            console.log();
+            // console.log(`${chalk.blueBright(`Clonando Repo...`)}`);
+            // console.log();
             await git.clone(repoBoilerplate, rootApp);
             resolve();
         }
